@@ -19,3 +19,7 @@ This folder contains 4 files relevant to a project using Machine Learning to Pre
 * **Non_Technical_Presentation.pdf** is a copy of the Non-technical presentation given as part of the certification. The audience of this presentation had little knowledge data science and machine learning. Thus, the goal was to adapt the information for the audience
 *  **Technical_Report_Montilla.ipynb** is the original Python code of the project which was used to create the report and presentation
 *  **Technical_Report_Montilla.pdf** is a copy of the technical report explaining the project in more detail
+
+## Copyright
+
+Default copyright law applies to the code
