@@ -25,7 +25,7 @@ Acquired competencies in the following areas:
 * **Plant_1_Weather_Sensor_Data.csv**: Sensor data from plant 1
 * **Plant_2_Generation_Data.csv**: Plant 2 Generatation Data
 * **Plant_2_Weather_Sensor_Data.csv**: Sensor data from plant 2
-* * **COMING SOON**: compiled notebooks of the assingments
+* **COMING SOON**: compiled notebooks of the assingments
 
 ## Collaborators
 
