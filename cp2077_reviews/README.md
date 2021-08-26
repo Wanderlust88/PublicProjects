@@ -1,4 +1,5 @@
-# Public Projects
-This repository is intented to showcase data science skills through projects using public datasets
+# Cyberpunk 2077 reviews - Sentiment Analysis
 
-Default copyright law applies to the code
+## Summary
+
+## Libraries used
