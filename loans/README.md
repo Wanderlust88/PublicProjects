@@ -1,4 +1,3 @@
-# Public Projects
-This repository is intented to showcase data science skills through projects using public datasets
+# Loans - Ongoing project
 
-Default copyright law applies to the code
+The aim of this ongoing project is to use public data to build a model that can predict whether a loan is going to default using the give features. This is a classification problem that would require using certain methods to account for the imbalance in the data
