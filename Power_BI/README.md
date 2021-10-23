@@ -1,4 +1,3 @@
-# Public Projects
-This repository is intented to showcase data science skills through projects using public datasets
+# Power BI - Examples
 
-Default copyright law applies to the code
+This folders shows a few examples of reports created with Power BI
