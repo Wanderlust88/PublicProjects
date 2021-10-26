@@ -1,4 +1,10 @@
-# Public Projects
-This repository is intented to showcase data science skills through projects using public datasets
+# Creating dashboards using Dash
 
+## Summary
+
+## Files Description
+
+## Copyright
 Default copyright law applies to the code
+
+## Acknowledgements
