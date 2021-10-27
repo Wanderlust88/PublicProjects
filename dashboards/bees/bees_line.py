@@ -23,6 +23,8 @@ df = pd.read_csv("intro_bees.csv")
 df = df.groupby(['State', 'ANSI', 'Affected by', 'Year', 'state_code'])[['Pct of Colonies Impacted']].mean()
 df.reset_index(inplace=True)
 print(df[:5])
+#subset states for illustration purposes
+states = ['California', 'New York', 'Texas'] 
 
 # ------------------------------------------------------------------------------
 # App layout
@@ -32,19 +34,26 @@ app.layout = html.Div([
 
     dcc.Dropdown(id="slct_year",
                  options=[
-                     {"label": "2015", "value": 2015},
-                     {"label": "2016", "value": 2016},
-                     {"label": "2017", "value": 2017},
-                     {"label": "2018", "value": 2018}],
+                     {"label": "Disease", "value": "Disease"},
+                     {"label": "Other", "value": "Other"},
+                     {"label": "Pesticides", "value": "Pesticides"},
+                     {"label": "Pests_excl_Varroa", "value": "Pests_excl_Varroa"},
+                     {"label": "Unknown", "value": "Unknown"},
+                     {"label": "Varroa_mites", "value": "Varroa_mites"}],
                  multi=False,
-                 value=2015,
+                 value="Pesticides",
                  style={'width': "40%"}
                  ),
-
+      # dcc.Checklist(
+      #    id="checklist",
+      #    options=[{"label": x, "value": x} 
+      #             for x in states],
+      #    value=states,
+      #    labelStyle={'display': 'inline-block'}),
     html.Div(id='output_container', children=[]),
     html.Br(),
 
-    dcc.Graph(id='my_bee_map', figure={})
+    dcc.Graph(id='my_line', figure={})
 
 ])
 
@@ -53,22 +62,22 @@ app.layout = html.Div([
 # Connect the Plotly graphs with Dash Components
 @app.callback(
     [Output(component_id='output_container', component_property='children'),
-     Output(component_id='my_bee_map', component_property='figure')],
+     Output(component_id='my_line', component_property='figure')],
     [Input(component_id='slct_year', component_property='value')]
 )
 def update_graph(option_slctd):
     print(option_slctd)
     print(type(option_slctd))
 
-    container = "Currently showing year: {}".format(option_slctd)
-
+    container = "Currently showing bee-killer: {}".format(option_slctd)
+    
     dff = df.copy()
-    dff = dff[dff["Year"] == option_slctd]
-    dff = dff[dff["Affected by"] == "Varroa_mites"]
+    dff = dff[dff['State'].isin(states)]
+    dff = dff[dff["Affected by"] == option_slctd]
 
     # Plotly Express
-    fig = px.bar(dff, x='State', y='Pct of Colonies Impacted')
- 
+    fig = px.line(dff, x='Year', y='Pct of Colonies Impacted', color='State')
+    fig.update_xaxes(dtick=1)
 
     return container, fig
 
